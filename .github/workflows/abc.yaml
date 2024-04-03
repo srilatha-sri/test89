@@ -1,0 +1,20 @@
+name: check 
+
+on:
+ workflow_dispatch:
+ 
+
+jobs:
+  commithistory:
+    name: action1
+    runs-on: [ubuntu-latest]
+    steps: 
+      - name: abc
+        id: checkc
+        run: |-
+          if  [[git log -1 | grep int1 ]]
+          then
+            echo ***commit history contains int1***
+            exit 0
+          fi
+    
