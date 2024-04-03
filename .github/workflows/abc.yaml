@@ -13,7 +13,7 @@ jobs:
       - name: abc
         id: checkc
         run: |-
-          p=$(git log -1|grep u)
+          p=$(git log -1|grep Update)
           echo $p
           if [[ $(git log -1 | grep yhb) ]]
           then
