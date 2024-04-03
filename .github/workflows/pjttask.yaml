@@ -21,11 +21,7 @@ jobs:
         id: checkc
         run: |-
           echo "pr.ref = ${{github.event.pull_request.head.sha}}"
-          if: ${{ contains(github.event.pull_request.head.sha, '[Update]') }}
-          then
-            echo ***commit history contains int1***
-            exit 0
-          else
-            exit 1
-          fi
-    
+      - name: Print head git commit message
+        id: get_head_commit_message
+        run: echo "::set-output name=headCommitMsg::$(git show -s --format=%s)"
+  
