@@ -16,25 +16,35 @@ jobs:
       - name: Get repo
         uses: actions/checkout@v3
         with:
-          ref: ${{ env.GITHUB_SHA }}
-      - name: abc
-        id: checkc
-        run: |-
-          echo "pr.ref = ${{github.event.pull_request.head.sha}}"
-          git log "${pr.ref}"
+          ref: ${{ github.event.pull_request.head.sha }}
+      #- name: abc
+      #  id: checkc
+       # run: |-
+        #  echo "pr.ref = ${{github.event.pull_request.head.sha}}"
+        #  git log "${pr.ref}"
       
-      - name: abc
-        id: checkcD
-        run: |-
-         git log {pr.ref}
-      - name: Declare some variables
-        shell: bash
-        run: |
-          echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
-          echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >> "$GITHUB_ENV"
+     # - name: abc
+     #   id: checkcD
+      #  run: |-
+       #  git log {pr.ref}
+      -# name: Declare some variables
+        #shell: bash
+        #run: |
+        #  echo "sha_short=$(git rev-parse --short "$GITHUB_SHA")" >> "$GITHUB_ENV"
+        #  echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >> "$GITHUB_ENV"
   
       - name: Another step
         run: |
           echo "Branch: ${{ env.branch }}"
           echo "Sha: ${{ env.sha_short }}"
+      - name: abc
+        id: checkc
+        run: |-
+          if [[ $(git log -1 | grep Update) ]]
+          then
+            echo ***commit history contains int1***
+            exit 0
+          else
+            exit 1
+          fi
   
