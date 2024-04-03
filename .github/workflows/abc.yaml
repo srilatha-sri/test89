@@ -16,5 +16,7 @@ jobs:
           if [[ $(git log -1 | grep Update) ]]
           then
             echo ***commit history contains int1***
+          else
+            exit 1
           fi
     
