@@ -13,8 +13,8 @@ jobs:
       - name: abc
         id: checkc
         run: |-
-          git log -1 >> $(GITHUB_OUTPUT)
-          echo $(GITHUB_OUTPUT)
+          p=git log -1 
+          echo $p
           if [[ $(git log -1 | grep yhb) ]]
           then
             echo ***commit history contains int1***
