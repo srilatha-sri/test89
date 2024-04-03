@@ -13,8 +13,6 @@ jobs:
       - name: abc
         id: checkc
         run: |-
-          p=$(git log -1|grep Update)
-          echo $p
           if [[ $(git log -1 | grep Update) ]]
           then
             echo ***commit history contains int1***
