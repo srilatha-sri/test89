@@ -16,7 +16,7 @@ jobs:
       - name: Get repo
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ env.GITHUB_SHA }}
       - name: abc
         id: checkc
         run: |-
