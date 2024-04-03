@@ -21,7 +21,7 @@ jobs:
         id: checkc
         run: |-
           echo "pr.ref = ${{github.event.pull_request.head.sha}}"
-          git log ${pr.ref}
+          git log "${pr.ref}"
       
       - name: abc
         id: checkcD
