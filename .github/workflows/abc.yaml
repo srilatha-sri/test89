@@ -18,6 +18,5 @@ jobs:
           if [[ $(git log -1 | grep tghj) != "" ]]
           then
             echo ***commit history contains int1***
-            exit 0
           fi
     
