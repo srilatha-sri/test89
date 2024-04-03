@@ -1,0 +1,31 @@
+name: check 
+
+on:
+ workflow_dispatch:
+
+ pull_request:
+   branches:
+     - master
+   types: [opened]
+
+jobs:
+  commithistory:
+    name: action1
+    runs-on: [ubuntu-latest]
+    steps: 
+      - name: Get repo
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: abc
+        id: checkc
+        run: |-
+          echo "pr.ref = ${{github.event.pull_request.head.sha}}"
+          if: ${{ contains(github.event.pull_request.head.sha, '[Update]') }}
+          then
+            echo ***commit history contains int1***
+            exit 0
+          else
+            exit 1
+          fi
+    
