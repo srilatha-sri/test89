@@ -12,7 +12,7 @@ jobs:
       - name: abc
         id: checkc
         run: |-
-          if [[ git log -1 || grep 'int1' ]]
+          if [[ $(git log -1 | grep c1) ]]
           then
             echo ***commit history contains int1***
             exit 0
