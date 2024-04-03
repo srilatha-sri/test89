@@ -20,7 +20,7 @@ jobs:
       - name: abc
         id: checkc
         run: |-
-          echo "pr.ref = ${{github.event.pull_request.head.sha}}
+          echo "pr.ref = ${{github.event.pull_request.head.sha}}"
           git log {pr.ref}
       
       - name: abc
