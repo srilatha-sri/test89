@@ -35,4 +35,10 @@ jobs:
           else
             exit 1
           fi
+      - name: Get Head Commit Message
+        id: get_head_commit_message
+        run: 
+         echo "HEAD_COMMIT_MESSAGE=$(git show -s --format=%s)" >> "$GITHUB_OUTPUT"
+         echo $GITHUB_OUTPUT
+        
   
