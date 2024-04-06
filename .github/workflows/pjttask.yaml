@@ -25,6 +25,8 @@ jobs:
          p=$(git show -s --format=%s) 
          echo $p
          if [[ $($p | grep 'int1') ]]
+         then
+          echo "successfully completed first script"
           exit 0
          else
           exit 1
