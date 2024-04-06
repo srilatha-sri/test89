@@ -24,7 +24,7 @@ jobs:
         run: |-
          p=$(git show -s --format=%s) 
          echo $p
-         if [[ $($p | grep int1) ]]
+         if [[ $((git show -s --format=%s) | grep int1) ]]
          then
           echo "successfully completed first script"
           exit 0
