@@ -21,9 +21,10 @@ jobs:
      
       - name: Get Head Commit Message
         id: get_head_commit_message
-        run: 
+        run: |-
          p=$(git show -s --format=%s) 
-         if [[ $p | grep 'int1']
+         echo $p
+         if [[ $($p | grep 'int1') ]]
           exit 0
          else
           exit 1
